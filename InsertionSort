@@ -1,27 +1,23 @@
 public class InsertionSort{
-	public static void main(String[] args) throws IOException {
-		
-	    int[] arr = {12, 35, 87, 26, 9, 28, 7};
-	    
-	    for (int i = 1; i < arr.length; i++) {
+	
+	public static void insertionSort(int[] arr){
+		for (int i = 1; i < arr.length; i++) {
 			int j = arr[i];
 			int index = i;
 			for (int j2 = i-1; j2 >= 0; j2--) {
 				if(j < arr[j2]){
-					arr = swap(index,j2,arr);
+					arr[index] = arr[j2];
 					index = j2;
 				}
 			}
+			arr[index] = j;
+			//System.out.println("Sorted array after "+ i +": "  + Arrays.toString(arr));
 		}
-	   for (int i = 0; i < arr.length; i++) {
-		System.out.println(arr[i]);
-	  }
-	}
-	static int[] swap(int x, int y, int[] arr){
-		int a = arr[x];
-		arr [x] = arr[y];
-		arr [y] = a;
-		return arr;
 	}
 	
+	public static void main(String[] args){
+		int[] array = {12, 35, 87, 26, 9, 28, 7}; 
+		insertionSort(array);
+		System.out.println("Sorted array: "  + Arrays.toString(array));
+	}
 }
